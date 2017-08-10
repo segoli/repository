@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <title>
+    </title>
+    </head>
+  <body>
+    <div id="page">
+    </div>
+	<script>
+    $(document).ready(function(){
+      var pagedata = window.location.pathname;
+      var pagedata = pagedata.replace('/C:/html/page/','');
+	  var pagedata = pagedata.replace('.html','.txt');
+	  var pagedata = '/C:/html/data/' + pagedata
+      $('#page').load('/test_page.txt');
+	  $.get(pagedata, function(data){
+	    $('#page').append(data);
+	  });
+	  $('#page').append(pagedata);
+    });
+    </script>
+  </body>
+</html>
